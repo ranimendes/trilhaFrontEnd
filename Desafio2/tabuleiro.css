@@ -1,0 +1,94 @@
+*, *::before, *::after{
+    box-sizing: border-box; 
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box; 
+    -o-box-sizing: border-box;  
+  }
+  
+  #containerFull {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  #container {
+    border: 0px solid #000;
+    width: 500px;
+    height: 500px;
+    border-radius: 0px;
+    cursor: pointer;
+    float: left;
+  }
+  
+  .row {
+    clear: both;
+  }
+  
+  .row div {
+    font-size: 3em;
+    float: left;
+    width: 70px;
+    height: 70px;
+    border-left: 0px solid #000;
+    border-bottom: 0px solid #000;
+    text-align: center;
+  }
+  
+  .row div:first-child {
+      background: gray;
+    border-left: 0;
+  }
+  
+  .line-1 div:nth-child(1n+1)  {
+    background: gray;
+    color: #FFF
+  }
+  
+  .line-1 div:nth-child(2n+1)  {
+    background:#000;
+    color: #FFF
+  }
+  
+  .line-2 div:nth-child(1n+2)  {
+    background: #000;
+    color: #FFF
+  }
+  
+  .line-1 div:nth-child(3n)  {
+    background:#000;
+    color: #FFF
+  }
+  
+  .line-2 div:nth-child(4n+3)  {
+    background: gray;
+    color: #FFF
+  }
+  
+  .line-3 div:nth-child(2n+1)  {
+    background: #000;
+    color: #FFF
+  
+  }
+  
+  .line-3 div:nth-child(4n+2)  {
+    background: gray;
+    color: #FFF
+  
+  }
+  
+  .line-3 div:nth-child(2n)  {
+    background: gray;
+    color: #FFF
+  
+  }   
+  
+  .line-4 div:nth-child(2n+2)  {
+    background: #000;
+    color: #FFF
+  }
+  
+  .line-4 div:nth-child(2n+1)  {
+    background: gray;
+    color: #FFF
+  }
+  
+        
