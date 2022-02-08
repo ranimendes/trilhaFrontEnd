@@ -1,0 +1,27 @@
+.header {
+    width: 50%;
+    height: 60px;
+    display: flex;
+    border: 1px solid #000; 
+    justify-content: space-around;
+    
+}
+   
+   .ul {
+  
+    display: flex;
+    padding-right: 50px;
+    padding-left: 220px;
+   
+}
+   
+   .text {
+    flex-grow: 1; 
+   }
+
+   .nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+   }
