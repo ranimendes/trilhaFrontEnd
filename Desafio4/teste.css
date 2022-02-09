@@ -1,0 +1,42 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-image: url(/img/pagina\ web.jpg);
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 20vh 70vh 10vh;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+  grid-row-gap: 20px 50px;
+}
+
+header {
+  background: yellow;
+  grid-area: header;
+}
+
+main {
+  background: green;
+  grid-area: main;
+}
+
+aside {
+  background: blueviolet;
+  grid-area: aside;
+}
+
+footer {
+  background: violet;
+  grid-area: footer;
+}
