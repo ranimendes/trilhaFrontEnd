@@ -1,52 +1,60 @@
 .container {
-    border: 1px solid black;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .menu {
-    list-style: none;
-    display: flex;
-    margin: 5px;
-  }
-  
-  .menu li {
-   margin: 5px;
-  }
-  
-  img {
-    height: 20px;
-  }
-  
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  margin: 5px;
+}
+
+.menu li {
+  margin: 5px;
+}
+
+.img {
+  height: 20px;
+}
+
+.btn {
+  display: none;
+  border: none;
+  background-color: white;
+
+}
+
+.menu-2 {
+  display: none;
+}
+
+@media (max-width: 600px) {
   .btn {
+    display: block;
+    margin-left: auto;
+  }
+
+  .menu {
     display: none;
   }
-  
   .menu-2 {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .menu2 {
     display: none;
+    flex-direction: column;
+    border: 1px solid black;
+    list-style: none;
   }
-  
-  @media (max-width: 600px) {
-    .btn {
-      display: block;
-      margin-left: auto;
-    }
-    
-    .menu {
-      display: none;
-    }
-    .menu-2 {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .menu2 {
-      display: none;
-      flex-direction: column;
-      border: 1px solid black;
-      list-style: none;
-    }
-    .menu2 li {
-      padding: 5px;
-    }
+  .menu2 li {
+    padding: 5px;
   }
+}
+
+.logo{
+  margin-inline: 20px;
+}
