@@ -48,7 +48,7 @@ a {
   border: solid purple;
   color: purple;
   background: white;
-  border-radius: 20px;
+  border-radius: 25px;
   width: 200px;
   height: 30px;
 }
@@ -56,9 +56,11 @@ a {
 .ul {
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  justify-content: space-evenly;
   width: 80%;
-  margin-left: 60%;
+  margin-left: 40%;
 }
 
 .content {
@@ -66,7 +68,6 @@ a {
   flex-direction: column;
   height: 27vh;
   width: 30%;
-  border-bottom: solid gray;
 }
 
 h1 {
@@ -75,10 +76,12 @@ h1 {
   font-weight: lighter;
   align-self: flex-end;
   color: purple;
+  flex-direction: row;
 }
 
 .lorem {
   text-align: right;
+  font-size: x-small;
 }
 
 .form {
