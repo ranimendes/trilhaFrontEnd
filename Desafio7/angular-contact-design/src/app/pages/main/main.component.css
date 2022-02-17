@@ -1,6 +1,12 @@
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
 .back {
 	position:absolute;
-	width:45vw;
+	width:50vw;
+  border: none;
 	bottom:0;
 	left:0;
 }
@@ -8,5 +14,6 @@
 @media screen and (max-width: 800px) {
 	.back {
     width:55vw;
+    justify-content: start;
   }
 }

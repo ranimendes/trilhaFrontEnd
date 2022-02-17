@@ -1,17 +1,19 @@
 .container {
   display: flex;
   justify-content: flex-end;
-  margin: 20px;
+  margin: 0px 0px;
+  padding: 0px 0px;
 }
 .content {
   display: flex;
   flex-direction: column;
-  height: 27vh;
+  justify-content: justify;
+  height: 25vh;
   width: 30%;
 }
 
 h1 {
-  margin: 30px 0;
+  margin: 30px 0px;
   font-size: 45px;
   font-weight: lighter;
   align-self: flex-end;
@@ -21,7 +23,7 @@ h1 {
 }
 
 .lorem {
-  text-align: right;
+  text-align: center;
   font-size: x-small;
   display: flex;
   flex-direction: row;
@@ -31,7 +33,7 @@ h1 {
   .container {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: start;
     margin: 0px;
   }
   .content {
@@ -42,8 +44,10 @@ h1 {
 
   .h1 {
     font-size: 45px;
-    display: flex;
-    text-align: justify;
+    display: block;
+    text-align: start;
+    margin-right: auto;
+
   }
 
   .caixa-texto {
@@ -61,19 +65,23 @@ h1 {
   .container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: start;
     margin: 0px;
   }
 
   .content {
-    display: flex;
+    display: block;
     flex-direction: row;
     padding: 0px;
-    text-align: justify;
+    text-align: start;
   }
 
   .h1 {
-    text-align: justify;
+    font-size: 45px;
+    display: block;
+    text-align: start;
+    margin-right: auto;
+
   }
 
   .caixa-texto {

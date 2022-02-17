@@ -1,13 +1,10 @@
 <div class="container">
   <div class="form">
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-      <input
-        id="name"
-        type="text"
-        formControlName="name"
-        class="campos"
-        placeholder="Your Name"
-      />
+      <label for="exampleInputEmail1" class="form-label"></label>
+      <div class="mb-3">
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu nome">
+    <div id="emailHelp" class="form-text"></div></div>
       <small
         class="alerta"
         *ngIf="
@@ -17,13 +14,10 @@
         Campo obrigatório!</small
       >
 
-      <input
-        id="email"
-        type="email"
-        formControlName="email"
-        class="campos"
-        placeholder="Your Email@exemple.com"
-      />
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"></label>
+        <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Seu email">
+      </div>
       <small
         class="alerta"
         *ngIf="
@@ -32,13 +26,10 @@
       >
         Campo obrigatório!</small
       >
-
-      <textarea
-        id="message"
-        formControlName="message"
-        class="campos"
-        placeholder="Message"
-      ></textarea>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"></label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Mensagem"></textarea>
+      </div>
       <small
         class="alerta"
         *ngIf="
@@ -47,9 +38,8 @@
         "
         >Campo obrigatório! (minimo 10 caracteres)
       </small>
-
-      <button class="btn2" [disabled]="formulario.invalid">
-        <a class="start" href="">START CHAT</a>
+      <button type="button" class="btn2 btn btn-dark" [disabled]="formulario.invalid">
+        <a class="start" href="">STAR CHAT</a>
       </button>
     </form>
   </div>

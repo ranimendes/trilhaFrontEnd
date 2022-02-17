@@ -57,16 +57,49 @@ textarea {
 
 .btn2 {
   margin: 20px;
-  align-self: center;
   border-radius: 20px;
+  align-self: center;
   width: 100px;
   height: 30px;
-  background-color: rgb(172, 9, 172);
+  background-color: purple;
+  background-image: linear-gradient(rgb(117, 12, 117), rgb(133, 31, 133), rgb(116, 9, 116));
   color: white;
-
+  font-size: small;
 }
 
 .start{
+color: white;
 text-decoration: white;
 }
+
+.a{
+  background-color: white;
+}
+
+@media screen and (max-width: 404px){
+  .form{
+    display: block;
+    justify-content: start;
+    align-items: stretch;
+  }
+  .container {
+    margin: 20px;
+    display: flex;
+    justify-content: start;
+  }
+}
+
+@media screen and (max-width: 800px){
+  .form{
+    display: block;
+    justify-content: start;
+    align-items: stretch;
+  }
+  .container {
+    margin: 20px;
+    display: flex;
+    justify-content: start;
+  }
+}
+
 

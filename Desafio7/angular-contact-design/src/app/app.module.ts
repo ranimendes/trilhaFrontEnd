@@ -9,7 +9,8 @@ import { FormComponent } from './pages/form/form.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { MainComponent } from './pages/main/main.component'
+import { MainComponent } from './pages/main/main.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MainComponent } from './pages/main/main.component'
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    NgbModule,
 
   ],
   providers: [],
