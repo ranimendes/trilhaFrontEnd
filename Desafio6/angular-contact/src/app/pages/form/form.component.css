@@ -1,0 +1,72 @@
+.container {
+  margin: 20px;
+  display: flex;
+  justify-content: end;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 300px;
+}
+
+form {
+  display: flex;
+  flex-direction:column;
+}
+
+input {
+  border: none;
+  border-radius: 8px;
+  height: 38px;
+  box-shadow: 0 4px 8px #999;
+  margin: 5px;
+  padding: 5px;
+}
+
+.nome::placeholder {
+  background-image: url(/src/assets/face-img.png);
+  background-size: 3.5%;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}
+
+.email::placeholder {
+  background-image: url(/src/assets/email-img.png);
+  background-size: 4%;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}
+
+textarea::placeholder {
+  background-image: url(/src/assets/msg-img.png);
+  background-size: 4%;
+  background-repeat: no-repeat;
+  padding-left: 30px;
+}
+
+textarea {
+  border: none;
+  border-radius: 8px;
+  height: 150px;
+  box-shadow: 0 4px 8px #999;
+  margin: 4px;
+  padding: 5px;
+}
+
+.btn2 {
+  margin: 20px;
+  align-self: center;
+  border-radius: 20px;
+  width: 100px;
+  height: 30px;
+  background-color: rgb(172, 9, 172);
+  color: white;
+
+}
+
+.start{
+text-decoration: white;
+}
+
