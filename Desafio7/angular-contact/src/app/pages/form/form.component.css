@@ -78,7 +78,7 @@ text-decoration: white;
 
 @media screen and (max-width: 404px){
   .form{
-    display: block;
+    display: flex;
     justify-content: start;
     align-items: stretch;
   }
@@ -91,7 +91,7 @@ text-decoration: white;
 
 @media screen and (max-width: 800px){
   .form{
-    display: block;
+    display: flex;
     justify-content: start;
     align-items: stretch;
   }
@@ -100,6 +100,21 @@ text-decoration: white;
     display: flex;
     justify-content: start;
   }
+
+}
+
+@media screen and (max-width: 600px){
+  .form{
+    display: flex;
+    justify-content: start;
+    align-items: stretch;
+  }
+  .container {
+    margin: 20px;
+    display: flex;
+    justify-content: start;
+  }
+
 }
 
 

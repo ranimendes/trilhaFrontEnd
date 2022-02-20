@@ -44,7 +44,7 @@ h1 {
 
   .h1 {
     font-size: 45px;
-    display: block;
+    display: flex;
     text-align: start;
     margin-right: auto;
 
@@ -70,7 +70,7 @@ h1 {
   }
 
   .content {
-    display: block;
+    display: flex;
     flex-direction: row;
     padding: 0px;
     text-align: start;
@@ -78,7 +78,7 @@ h1 {
 
   .h1 {
     font-size: 45px;
-    display: block;
+    display: flex;
     text-align: start;
     margin-right: auto;
 
@@ -88,5 +88,41 @@ h1 {
     width: 100%;
     flex-direction: row;
     justify-content: center;
+  }
+
+  .lorem {
+    display: none;
+  }
+
+  @media screen and (max-width: 600px) {
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      margin: 0px;
+    }
+    .content {
+      display: flex;
+      flex-direction: row;
+      padding: 0px;
+    }
+
+    .h1 {
+      font-size: 45px;
+      display: flex;
+      text-align: start;
+      margin-right: auto;
+
+    }
+
+    .caixa-texto {
+      width: 90%;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .lorem {
+      display: none;
+    }
   }
 }
