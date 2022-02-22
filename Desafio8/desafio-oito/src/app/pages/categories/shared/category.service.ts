@@ -37,7 +37,7 @@ export class CategoryService {
     category.id = Math.ceil(Math.random()*100).toString()
 
     return this.http
-      .post(this.apiPath + '?user_id=lara_correa', category)
+      .post(this.apiPath + '?user_id=rani_mendes', category)
       .pipe(catchError(this.handleError), map(this.jsonDataToCategory));
   }
 
