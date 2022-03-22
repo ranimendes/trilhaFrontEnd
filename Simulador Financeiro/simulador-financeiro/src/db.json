@@ -1,0 +1,59 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "client": {
+        "nome": "Raniel Mendes Generoso",
+        "trabalho": "Músico",
+        "cpf": "37132117010",
+        "email": "raniel.mendes@hotmail.com",
+        "cep": "06362036",
+        "celular": "11984045931"
+      },
+      "imovel": {
+        "tipo": "comercial",
+        "renda": "20000",
+        "valor": "200000",
+        "entrada": "80000",
+        "parcelas": "250",
+        "valorAprovado": 120000,
+        "parcelaInicial": 490
+      },
+      "id": 2
+    },
+    {
+      "client": {
+        "nome": "Raniel Mendes Generoso",
+        "trabalho": "Músico",
+        "cpf": "37132117010",
+        "email": "raniel.mendes@hotmail.com",
+        "cep": "06362036",
+        "celular": "11984045931"
+      },
+      "imovel": {
+        "tipo": "residencial",
+        "renda": "7000",
+        "valor": "200000",
+        "entrada": "42000",
+        "parcelas": "250",
+        "valorAprovado": 158000,
+        "parcelaInicial": 645.1666666666666
+      },
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

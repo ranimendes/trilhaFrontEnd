@@ -1,17 +1,17 @@
 <div class="fundo">
   <div><h2 tabindex="0" class="card">Dados do proponente</h2></div>
   <div class="container">
-    <form class="formClient" [formGroup]="formClient">
+    <form [formGroup]="formClient" (ngSubmit)="client()">
       <mat-form-field appearance="outline" class="formInput">
         <mat-label>Nome</mat-label>
         <input
           class="formInput"
           type="text"
-          formControlName="name"
+          formControlName="nome"
           matInput
           placeholder="Nome Completo"
         />
-        <mat-error *ngIf="formClient.get('name')?.invalid"
+        <mat-error *ngIf="formClient.get('nome')?.invalid"
           >Preencha com seu nome completo</mat-error
         >
         <mat-hint>Preencha com seu nome completo</mat-hint>
@@ -22,11 +22,11 @@
         <input
           class="formInput"
           type="text"
-          formControlName="job"
+          formControlName="trabalho"
           matInput
           placeholder="Profissão"
         />
-        <mat-error *ngIf="formClient.get('job')?.invalid"
+        <mat-error *ngIf="formClient.get('trabalho')?.invalid"
           >Preencha com a sua profissão</mat-error
         >
         <mat-hint>Preencha com a sua profissão</mat-hint>
@@ -124,7 +124,7 @@
         mat-flat-button
         color="primary"
         class="btn"
-        routerLink="/form-imovel"
+        (click)="navigateImovel()"
         [disabled]="formClient.invalid"
       >
         CONTINUAR

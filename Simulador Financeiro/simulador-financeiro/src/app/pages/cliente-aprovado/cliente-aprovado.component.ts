@@ -1,7 +1,9 @@
 import { Subscription } from 'rxjs';
-import { FinaciamentoService } from 'src/app/shared/financiamento.service';
 import { Component, OnInit} from '@angular/core';
-
+import { ImovelStorageService } from '../form-imovel/shared/storage.service';
+import { Cliente } from '../form-client/shared/cliente.model';
+import { Imovel } from '../form-imovel/shared/imovel.model';
+import { ClientStorageService } from '../form-client/shared/client-storage.service';
 
 @Component({
   selector: 'app-cliente-aprovado',
@@ -10,23 +12,23 @@ import { Component, OnInit} from '@angular/core';
 })
 export class ClienteAprovadoComponent implements OnInit {
 
-  msgParcela!: string;
-  msgValor!: string;
-  subParcela!: Subscription;
-  subValor!: Subscription;
+  cliente!: Cliente;
+  imovel!: Imovel;
+  parcelaInicial!: number;
+  valorAprovado!: number;
 
 
-  constructor(private service: FinaciamentoService ) { }
+  constructor(
+        private clientStorage: ClientStorageService,
+        private imovelStorage: ImovelStorageService
+  ) {}
 
   ngOnInit(): void {
-    this.subParcela =
-    this.service.currentParcela.subscribe(message => this.msgParcela = message)
-    this.subValor =
-    this.service.currentValor.subscribe(message => this.msgValor = message)
-   }
+    this.cliente = this.clientStorage.getClient();
+    this.imovel = this.imovelStorage.getImovel();
+    console.log(this.imovel);
+    this.parcelaInicial = this.imovel.parcelaInicial!;
 
-   ngOnDestroy() {
-     this.subParcela.unsubscribe();
-   }
-
+    this.valorAprovado = this.imovel.valorAprovado!;
+  }
 }

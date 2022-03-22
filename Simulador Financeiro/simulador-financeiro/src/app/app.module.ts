@@ -25,6 +25,7 @@ import * as divider from '@angular/material/divider';
     SharedModule,
     SharedRoutingModule,
     NgxMaskModule.forRoot(),
+    HttpClientModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],
