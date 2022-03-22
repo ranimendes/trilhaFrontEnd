@@ -1,0 +1,15 @@
+img {
+  position: static;
+  width: 84.54px;
+  height: 50px;
+  left:16px;
+  top: 10px;
+}
+ h1 {
+   margin-left: 20px;
+   color: white;
+ }
+
+.color-top{
+  background-color: #6200ee;
+}

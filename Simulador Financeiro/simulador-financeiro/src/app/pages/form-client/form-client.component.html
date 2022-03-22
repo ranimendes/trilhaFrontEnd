@@ -1,0 +1,134 @@
+<div class="fundo">
+  <div><h2 tabindex="0" class="card">Dados do proponente</h2></div>
+  <div class="container">
+    <form class="formClient" [formGroup]="formClient">
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Nome</mat-label>
+        <input
+          class="formInput"
+          type="text"
+          formControlName="name"
+          matInput
+          placeholder="Nome Completo"
+        />
+        <mat-error *ngIf="formClient.get('name')?.invalid"
+          >Preencha com seu nome completo</mat-error
+        >
+        <mat-hint>Preencha com seu nome completo</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Profissão</mat-label>
+        <input
+          class="formInput"
+          type="text"
+          formControlName="job"
+          matInput
+          placeholder="Profissão"
+        />
+        <mat-error *ngIf="formClient.get('job')?.invalid"
+          >Preencha com a sua profissão</mat-error
+        >
+        <mat-hint>Preencha com a sua profissão</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>CPF</mat-label>
+        <input
+          class="formInput"
+          type="text"
+          formControlName="cpf"
+          matInput
+          placeholder="CPF"
+          mask="000.000.000-00"
+        />
+        <mat-error *ngIf="formClient.get('cpf')?.invalid"
+          >Preencha com o seu CPF</mat-error
+        >
+        <mat-hint>Preencha com o seu CPF</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>E-mail</mat-label>
+        <input
+          type="text"
+          formControlName="email"
+          matInput
+          placeholder="E-mail"
+        />
+        <mat-error *ngIf="formClient.get('email')?.invalid"
+          >Preencha com um e-mail válido</mat-error
+        >
+        <mat-hint>Preencha com um e-mail válido</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Data de nascimento</mat-label>
+        <input
+          type="text"
+          formControlName="birth"
+          matInput
+          placeholder="Data de nascimento"
+          mask="d0/M0/0000"
+        />
+        <mat-error *ngIf="formClient.get('birth')?.invalid"
+          >Preencha com sua data de nascimento</mat-error
+        >
+        <mat-hint>Preencha com sua data de nascimento</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>CEP</mat-label>
+        <input
+          type="text"
+          formControlName="cep"
+          matInput
+          placeholder="CEP"
+          mask="00000-000"
+        />
+        <mat-error *ngIf="formClient.get('cep')?.invalid"
+          >O CEP deve conter 9 digitos</mat-error
+        >
+        <mat-hint>O CEP deve conter 9 digitos</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Celular</mat-label>
+        <input
+          type="text"
+          formControlName="celular"
+          matInput
+          placeholder="Celular"
+          mask="(00) 00000-0000"
+        />
+        <mat-error *ngIf="formClient.get('celular')?.invalid"
+          >Preencha com seu celular</mat-error
+        >
+        <mat-hint>Preencha com seu celular</mat-hint>
+      </mat-form-field>
+    </form>
+    <hr />
+    <div class="footer">
+      <button mat-stroked-button color="primary" class="btn" routerLink="">
+        CANCELAR
+      </button>
+      <div
+        class="fakebtn"
+        *ngIf="formClient.invalid"
+        tabindex="0"
+        role="button"
+        aria-disabled="true"
+        aria-label="continuar"
+      ></div>
+      <button
+        mat-flat-button
+        color="primary"
+        class="btn"
+        routerLink="/form-imovel"
+        [disabled]="formClient.invalid"
+      >
+        CONTINUAR
+      </button>
+    </div>
+  </div>
+</div>

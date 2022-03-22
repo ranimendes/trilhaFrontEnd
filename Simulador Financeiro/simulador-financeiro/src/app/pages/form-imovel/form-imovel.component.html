@@ -1,0 +1,108 @@
+<div class="fundo">
+  <div>
+    <h2 tabindex="0" class="card">Dados do imóvel</h2>
+  </div>
+  <div class="container">
+    <form  class="formImovel" [formGroup]="formImovel">
+      <mat-form-field class="formInput">
+        <mat-label>Tipo do imóvel</mat-label>
+        <mat-select formControlName="tipo">
+          <mat-option value="comercial">Comercial</mat-option>
+          <mat-option value="residencial">Residencial</mat-option>
+        </mat-select>
+        <mat-error *ngIf="formImovel.get('tipo')?.invalid"
+          >Selecione o tipo do imóvel</mat-error
+        >
+        <mat-hint>Selecione o tipo do imóvel</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Renda mensal</mat-label>
+        <input
+          type="text"
+          formControlName="renda"
+          matInput
+          placeholder="Renda mensal"
+          mask="separator.2"
+        />
+        <mat-error *ngIf="formImovel.get('renda')?.invalid"
+          >Preencha com a sua renda mensal</mat-error
+        >
+        <mat-hint>Preencha com a sua renda mensal</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Valor do imóvel</mat-label>
+        <input
+          class="formInput"
+          type="text"
+          formControlName="valor"
+          matInput
+          placeholder="Valor do imóvel"
+          mask="separator.2"
+        />
+        <mat-error *ngIf="formImovel.get('valor')?.invalid"
+          >Preencha com o valor do imóvel desejado</mat-error
+        >
+        <mat-hint>Preencha com o valor do imóvel desejado</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Valor da entrada</mat-label>
+        <input
+          type="text"
+          formControlName="entrada"
+          matInput
+          placeholder="Valor da entrada"
+          mask="separator.2"
+        />
+        <mat-error *ngIf="formImovel.get('entrada')?.invalid"
+          >A entrada deve ser no mínimo 20% do valor do imóvel</mat-error
+        >
+        <mat-hint>A entrada deve ser no mínimo 20% do valor do imóvel</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="formInput">
+        <mat-label>Em quantas vezes deseja parcelar</mat-label>
+        <input
+          type="text"
+          formControlName="parcelas"
+          matInput
+          placeholder="Em quantas vezes deseja parcelar"
+          mask="000"
+        />
+        <mat-error *ngIf="formImovel.get('parcelas')?.invalid"
+          >Preencha com no máximo 360 parcelas</mat-error
+        >
+        <mat-hint>Preencha com no máximo 360 parcelas</mat-hint>
+      </mat-form-field>
+    </form>
+    <hr />
+    <div class="footer">
+      <button
+        mat-stroked-button
+        color="primary"
+        class="btn"
+        routerLink="/formCliente"
+      >
+        VOLTAR
+      </button>
+      <div class="fakebtn"
+      *ngIf="formImovel.invalid"
+      tabindex="0"
+      role="button"
+      aria-disabled="true"
+      aria-label="simular"
+    ></div>
+      <button
+        mat-flat-button
+        color="primary"
+        class="btn"
+        [disabled]="formImovel.invalid"
+        (click)="validarJuros(this.formImovel.value)"
+      >
+        SIMULAR
+      </button>
+    </div>
+  </div>
+</div>
