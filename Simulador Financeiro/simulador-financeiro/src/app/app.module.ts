@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PagesRoutingModule } from './pages/pages-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { SharedRoutingModule } from './shared/shared-routing.module';
-import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { NgxMaskModule } from 'ngx-mask';
 import * as divider from '@angular/material/divider';
 
 @NgModule({
