@@ -3,7 +3,6 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  MinLengthValidator,
   Validators,
 } from '@angular/forms';
 import { ClientStorageService } from '../form-client/shared/client-storage.service';
@@ -13,7 +12,6 @@ import { ValidaImovel } from './valida-imovel.module';
 import { Router } from '@angular/router';
 import { ImovelStorageService } from './shared/storage.service';
 import { ImovelService } from './imovel.service';
-import { ThisReceiver } from '@angular/compiler';
 
 export interface Simulacao {
   client: Cliente;

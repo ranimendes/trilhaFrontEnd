@@ -46,7 +46,7 @@ export class FormClientComponent implements OnInit {
       this.formClient.get('celular')?.value
     );
     this.clientStorage.setClient(client);
-
+      
     this.router.navigate(['form-imovel']);
   }
 
