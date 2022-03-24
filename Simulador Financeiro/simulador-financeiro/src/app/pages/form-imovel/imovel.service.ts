@@ -11,6 +11,7 @@ export class ImovelService {
     throw new Error('Method not implemented.');
   }
 
+  
   baseUrl = 'http://localhost:3000/posts';
 
   constructor(private http: HttpClient) {}
