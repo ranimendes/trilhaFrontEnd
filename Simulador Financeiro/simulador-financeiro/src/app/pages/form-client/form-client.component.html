@@ -1,7 +1,7 @@
 <div class="fundo">
   <div><h2 tabindex="0" class="card">Dados do proponente</h2></div>
   <div class="container">
-    <form [formGroup]="formClient" (ngSubmit)="client()">
+    <form [formGroup]="formClient">
       <mat-form-field appearance="outline" class="formInput">
         <mat-label>Nome</mat-label>
         <input
@@ -124,7 +124,8 @@
         mat-flat-button
         color="primary"
         class="btn"
-        (click)="navigateImovel()"
+        routerLink = {{rota}}
+        (click)="enviaForm"
         [disabled]="formClient.invalid"
       >
         CONTINUAR
