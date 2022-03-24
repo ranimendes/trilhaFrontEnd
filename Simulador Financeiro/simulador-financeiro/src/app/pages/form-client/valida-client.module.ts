@@ -19,6 +19,5 @@ export class ValidaClient {
       return { idadeValida: true };
     }
   }
-
   public getIdade() {}
 }
