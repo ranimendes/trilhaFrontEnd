@@ -1,9 +1,9 @@
 .back {
-  background-color: #e5e5e5;
+  background-color: #f6f6f6;
   background-image: url("../../../assets/bg-sovamu.png");
   background-repeat: no-repeat;
   background-position: bottom right;
-  background-size: 20%;
+  background-size: 25%;
   height: 93.1vh;
   width:100%;
 }
@@ -17,8 +17,9 @@
 }
 
 .container {
-  margin: 10px;
+  margin: 20px;
   padding: 10px;
+  margin-left: 100px;
   display: flex;
   flex-direction: column;
   background: #FFFFFF;
@@ -29,7 +30,7 @@
 .title {
   padding: 10px;
   font-weight: 500;
-  font-size: 48px;
+  font-size: 38px;
   line-height: 24px;
   letter-spacing: 0.15px;
   text-align: center;
@@ -46,7 +47,7 @@ transform: matrix(1, 0, 0, -1, 0, 0);
 .content {
   padding: 10px;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 24px;
   letter-spacing: 0.15px;
   text-align: center;
@@ -57,7 +58,7 @@ transform: matrix(1, 0, 0, -1, 0, 0);
   border-radius: 4px;
   width: 228px;
   align-self: center;
-  background-color: #904bf2;
+  background-color: #6200ee;
   color: white;
-  font-weight: bold;
+  font-weight: lighter;
 }
