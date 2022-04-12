@@ -20,6 +20,24 @@ import { Location } from '@angular/common';
 })
 export class FormClientComponent extends BasicInfoService implements OnInit {
 
+  imaskEmail = {
+    mask: String
+  };
+
+  imaskCpf = {
+    mask: '000.000.000-00'
+  }
+
+  imaskCep = {
+    mask: '00000-000'
+  }
+  imaskCel = {
+    mask:'(00)00000-0000'
+  }
+  imaskData = {
+    mask: '00/00/0000'
+  }
+
   private onlyNumber = '[0-9]*';
   private caracteres = '[A-zÀ-ú ]+';
   enviaForm = this.botaoSalvar();
@@ -47,29 +65,15 @@ export class FormClientComponent extends BasicInfoService implements OnInit {
     return 'Formulário do Cliente'
   }
 
-  // navigateImovel() {
-  //   const client: Cliente = new Cliente(
-  //     this.formClient.get('id')?.value,
-  //     this.formClient.get('nome')?.value,
-  //     this.formClient.get('trabalho')?.value,
-  //     this.formClient.get('cpf')?.value,
-  //     this.formClient.get('email')?.value,
-  //     this.formClient.get('nascimento')?.value,
-  //     this.formClient.get('cep')?.value,
-  //     this.formClient.get('celular')?.value
-  //   );
-  //   this.clientStorage.setClient(client);
-  //   this.router.navigate(['form-imovel']);
-  // }
-
-  private criarFormulario() {
+    private criarFormulario() {
     this.formClient = this.fb.group({
       nome: new FormControl(null, [
         Validators.required,
         Validators.pattern(this.caracteres),
         Validators.minLength(3),
       ]),
-      trabalho: new FormControl(null, [Validators.required], ),
+      trabalho: new FormControl(null, [Validators.required, Validators.pattern(this.caracteres),
+        Validators.minLength(3),], ),
       cpf: new FormControl(null, [
         Validators.required,
         Validators.pattern(this.onlyNumber),
@@ -94,9 +98,25 @@ export class FormClientComponent extends BasicInfoService implements OnInit {
     });
   }
 
+  navigateImovel() {
+    const client: Cliente = new Cliente(
+      this.formClient.get('id')?.value,
+      this.formClient.get('nome')?.value,
+      this.formClient.get('trabalho')?.value,
+      this.formClient.get('cpf')?.value,
+      this.formClient.get('email')?.value,
+      this.formClient.get('birth')?.value,
+      this.formClient.get('cep')?.value,
+      this.formClient.get('celular')?.value
+    );
+    this.clientStorage.setClient(client);
+    this.botaoSalvar()
+  }
+
   protected botaoSalvar(){
     const url = this.location.path();
     this.enviarForm = true;
+
 
     if (url == "/form-client")
       this.rota = this.criaRotaImovel();
