@@ -1,12 +1,19 @@
 .back {
   background-color: #f6f6f6;
-  background-image: url("../../../assets/bg-sovamu.png");
-  background-repeat: no-repeat;
-  background-position: bottom right;
   background-size: 25%;
   height: 93.1vh;
   width:100%;
+
 }
+
+.fundo-transparente {
+  opacity: 0.4;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
 
 .card {
   padding: 10px;
