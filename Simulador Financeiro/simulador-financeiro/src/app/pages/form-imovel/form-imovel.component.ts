@@ -53,7 +53,7 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     return 'Dados do Imóvel';
   }
 
-  Imovel() {}
+  imovel() {}
 
   private criarFormulario() {
     this.imovelForm = this.fb.group({
@@ -69,6 +69,52 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
         ValidaImovel.numeroParcelas,
       ]),
     });
+  }
+
+  navigateApprovedDenied() {
+    const imovel: Imovel = new Imovel(
+      this.imovelForm.get('tipo')?.value,
+      this.imovelForm.get('renda')?.value,
+      this.imovelForm.get('valor')?.value,
+      this.imovelForm.get('entrada')?.value,
+      this.imovelForm.get('parcelas')?.value
+    );
+
+    const aprovadoValor = imovel.valor! - imovel.entrada!;
+
+    const parcela = this.imovelForm.get('parcelas')?.value;
+    const taxAccount = 0.1;
+    const rendaTeto = 0.3;
+
+    const initialInstallment =
+      (aprovadoValor * (100 + taxAccount * (parcela / 12))) / 100 / parcela;
+
+    imovel.parcelaInicial = initialInstallment;
+    imovel.valorAprovado = aprovadoValor;
+
+    this.imovelStorage.setImovel(imovel);
+
+    const valuePlusTax =
+      imovel.valorAprovado! + imovel.valorAprovado! * taxAccount;
+    const valorMaximoParcelas = valuePlusTax / imovel.parcelas!;
+    const valorMinimoRenda = imovel.renda! * rendaTeto;
+
+    if (valorMaximoParcelas > valorMinimoRenda) {
+      this.router.navigate(['cliente-reprovado']);
+    } else {
+      this.router.navigate(['cliente-aprovado']);
+    }
+
+    this.onSubmit(imovel);
+  }
+
+  validacaoCampos(simulacao: Simulacao) {
+    if (simulacao.imovel.renda! <= 0) return false;
+    if (simulacao.imovel.valor! <= 0) return false;
+    if (simulacao.imovel.entrada! <= 0) return false;
+    if (simulacao.imovel.parcelas! > 360) return false;
+    return true;
+
   }
 
   onSubmit(imovel: Imovel) {
@@ -110,67 +156,6 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     } else {
       alert('O seu formulário possui campos inválidos. Tente novamente.');
     }
-  }
-
-  public navigateApprovedDenied() {
-    const imovel: Imovel = new Imovel(
-      this.imovelForm.get('tipo')?.value,
-      this.imovelForm.get('renda')?.value,
-      this.imovelForm.get('valor')?.value,
-      this.imovelForm.get('entrada')?.value,
-      this.imovelForm.get('parcelas')?.value
-    );
-
-    const valorAprovado = imovel.valor! - imovel.entrada!;
-
-    const parcela = this.imovelForm.get('parcelas')?.value;
-    const taxAccount = 0.1;
-    const ceilIncome = 0.3;
-
-    const parcelaInicial =
-      (valorAprovado * (100 + taxAccount * (parcela / 12))) / 100 / parcela;
-
-    imovel.parcelaInicial = parcelaInicial;
-    imovel.valorAprovado = valorAprovado;
-
-    this.imovelStorage.setImovel(imovel);
-
-    const valuePlusTax =
-      imovel.valorAprovado! + imovel.valorAprovado! * taxAccount;
-    const maxInstallmentValue = valuePlusTax / imovel.parcelas!;
-    const minIncomeValue = imovel.renda! * ceilIncome;
-
-    if (maxInstallmentValue <= minIncomeValue) {
-      this.aprovacao = true;
-      return (this.enviarFormulario = this.botaoSalvar());
-    }
-    if (maxInstallmentValue > minIncomeValue) this.aprovacao = false;
-    return (this.enviarFormulario = this.botaoSalvar());
-  }
-
-
-  public rotaParaAprovacaoReprovada() {
-    return this.router.navigate(['/cliente-reprovado']);
-  }
-
-  public rotaParaAprovacaoAprovada() {
-    return this.router.navigate(['/cliente-aprovado']);
-  }
-
-  protected botaoSalvar() {
-    if (this.aprovacao == true) {
-      return this.rotaParaAprovacaoAprovada();
-    }
-    if (this.aprovacao == false) return this.rotaParaAprovacaoReprovada();
-    return '';
-  }
-
-  validacaoCampos(simulacao: Simulacao) {
-    if (simulacao.imovel.renda! <= 0) return false;
-    if (simulacao.imovel.valor! <= 0) return false;
-    if (simulacao.imovel.entrada! <= 0) return false;
-    if (simulacao.imovel.parcelas! > 360) return false;
-    return true;
   }
 }
 

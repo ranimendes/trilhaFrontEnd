@@ -8,7 +8,8 @@ export class Cliente {
     public birth?: string,
     public cep?: string,
     public celular?: string
-  ) {
+  )
+  {
     this.id = id;
     this.nome = nome;
     this.trabalho = trabalho;

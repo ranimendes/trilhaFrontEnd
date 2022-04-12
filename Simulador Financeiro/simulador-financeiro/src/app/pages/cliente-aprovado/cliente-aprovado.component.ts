@@ -22,11 +22,11 @@ export class ClienteAprovadoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.cliente = this.clientStorage.getClient();
     this.imovel = this.imovelStorage.getImovel();
     console.log(this.imovel);
     this.parcelaInicial = this.imovel.parcelaInicial!;
-
     this.valorAprovado = this.imovel.valorAprovado!;
   }
 }
