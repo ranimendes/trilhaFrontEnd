@@ -1,9 +1,10 @@
 <div class="fundo">
-  <div><h2 tabindex="0" class="card">Dados do proponente</h2></div>
+  <br aria-hidden="true">
+  <div><h2 tabindex="0">Dados do proponente</h2></div>
   <div class="container">
     <form [formGroup]="formClient">
       <mat-form-field appearance="outline" class="formInput">
-        <mat-label>Nome</mat-label>
+        <mat-label>Nome Completo</mat-label>
         <input
           class="formInput"
           type="text"
@@ -107,7 +108,6 @@
         <mat-hint>Preencha com seu celular</mat-hint>
       </mat-form-field>
     </form>
-    <hr />
     <div class="footer">
       <button mat-stroked-button color="primary" class="btn" routerLink="">
         CANCELAR
@@ -125,7 +125,7 @@
         color="primary"
         class="btn"
         routerLink = {{rota}}
-        (click)="enviaForm"
+        (click)="navigateImovel()"
         [disabled]="formClient.invalid"
       >
         CONTINUAR

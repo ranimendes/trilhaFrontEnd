@@ -1,10 +1,10 @@
-<div class="fundo">
+<div class="body">
   <div>
-    <h2 tabindex="0" class="card">Dados do imóvel</h2>
+    <h2 tabindex="0">Dados do imóvel</h2>
   </div>
   <div class="container">
     <form class="formImovel" [formGroup]="imovelForm">
-      <mat-form-field class="formInput">
+      <mat-form-field>
         <mat-label>Tipo do imóvel</mat-label>
         <mat-select formControlName="tipo">
           <mat-option value="comercial">Comercial</mat-option>
@@ -77,13 +77,13 @@
         <mat-hint>Preencha com no máximo 360 parcelas</mat-hint>
       </mat-form-field>
     </form>
-    <hr />
+    <hr aria-hidden="true" />
     <div class="footer">
       <button
         mat-stroked-button
         color="primary"
         class="btn"
-        routerLink="/formCliente"
+        routerLink="/form-client"
       >
         VOLTAR
       </button>

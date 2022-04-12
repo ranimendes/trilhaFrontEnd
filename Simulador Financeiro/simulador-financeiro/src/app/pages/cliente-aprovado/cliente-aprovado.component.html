@@ -4,18 +4,18 @@
     <h3 class="titulo">Proposta <b aria-label="número">N°</b> 00001</h3>
     <img alt="" src="../../../assets/cliente-aprovado.png" />
     <h3 class="status">STATUS: APROVADO</h3>
-    <hr />
+    <hr  aria-hidden="true"/>
     <ul class="lista">
       <li>Taxa de 8<b aria-label="porcento">%</b> ao ano para correntistas</li>
       <li>
         Taxa de 10<b aria-label="porcento">%</b> ao ano para não correntistas
       </li>
       <li>
-        Parcela inicial: <b aria-label="reais">R$</b>
+        Parcela inicial: <b aria-label="reais"></b>
         {{ parcelaInicial | currency: 'BRL' }}
       </li>
       <li>
-        Valor total aprovado: <b aria-label="reais">R$</b> {{ valorAprovado | currency: 'BRL' }}
+        Valor total aprovado: <b aria-label="reais"></b> {{ valorAprovado | currency: 'BRL' }}
       </li>
       <li>Seguro Só Vamu Security.</li>
       <li>Desconto na primeira e na última parcela</li>
