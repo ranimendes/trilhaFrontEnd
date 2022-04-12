@@ -30,7 +30,7 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
   imovelForm!: FormGroup;
   totalValue!: number;
   entryValue!: number;
-  simulacao!: ImovelService
+  simulacao!: ImovelService;
 
   constructor(
     injector: Injector,
@@ -99,12 +99,11 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     const valorMaximoParcelas = valuePlusTax / imovel.parcelas!;
     const valorMinimoRenda = imovel.renda! * rendaTeto;
 
-    if (valorMaximoParcelas > valorMinimoRenda) {
+    if (valorMaximoParcelas > valorMinimoRenda && aprovadoValor < 0) {
       this.router.navigate(['cliente-reprovado']);
     } else {
       this.router.navigate(['cliente-aprovado']);
     }
-
     this.onSubmit(imovel);
   }
 
@@ -114,7 +113,6 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     if (simulacao.imovel.entrada! <= 0) return false;
     if (simulacao.imovel.parcelas! > 360) return false;
     return true;
-
   }
 
   onSubmit(imovel: Imovel) {
@@ -158,4 +156,3 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     }
   }
 }
-
