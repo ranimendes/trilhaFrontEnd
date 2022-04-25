@@ -102,7 +102,7 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     if (valorMaximoParcelas > valorMinimoRenda && aprovadoValor < 0) {
       this.router.navigate(['cliente-reprovado']);
     } else {
-      this.router.navigate(['cliente-aprovado']);
+      this.posValida();
     }
     this.onSubmit(imovel);
   }
@@ -154,5 +154,17 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     } else {
       alert('O seu formulário possui campos inválidos. Tente novamente.');
     }
+  }
+
+  posValida(){
+    if (this.imovelForm.value == null){
+      return alert('SEU FORMÚLARIO É INVALIDO')
+    } else{
+      this.router.navigate(['cliente-aprovado']);
+    }
+  }
+
+  voltar() {
+    console.log(this.clientStorage);
   }
 }
