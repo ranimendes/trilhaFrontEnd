@@ -9,9 +9,9 @@ export class ValidaImovel {
 
     if (entrada < valor * 0.2) {
       return { entradaValida: true };
-    } else {
-      return null;
     }
+      return null;
+
   }
 
   static numeroParcelas(campo: AbstractControl) {

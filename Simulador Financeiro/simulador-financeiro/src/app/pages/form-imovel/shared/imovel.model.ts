@@ -7,6 +7,7 @@ export class Imovel {
     public parcelas?: number,
     public valorAprovado?: number,
     public parcelaInicial?: number
+    
   ) {
     this.tipo = tipo;
     this.renda = renda;

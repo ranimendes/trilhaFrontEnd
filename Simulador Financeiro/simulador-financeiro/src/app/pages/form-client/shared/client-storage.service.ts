@@ -7,7 +7,7 @@ import { Cliente } from './cliente.model';
 export class ClientStorageService {
   client!: Cliente
 
-  constructor() { }
+  constructor() {}
 
   setClient(client: Cliente){
     this.client = client

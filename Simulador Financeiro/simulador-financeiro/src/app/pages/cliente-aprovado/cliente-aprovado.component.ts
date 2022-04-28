@@ -1,32 +1,39 @@
-import { Subscription } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
-import { ImovelStorageService } from '../form-imovel/shared/storage.service';
-import { Cliente } from '../form-client/shared/cliente.model';
+import { Router } from '@angular/router';
+import { Component, OnInit, Injector } from '@angular/core';
+import { Location } from '@angular/common';
+import { BasicInfoService } from 'src/app/shared/Service/basic-info.service';
 import { Imovel } from '../form-imovel/shared/imovel.model';
-import { ClientStorageService } from '../form-client/shared/client-storage.service';
+import { ImovelService } from 'src/app/pages/form-imovel/imovel.service';
 
 @Component({
   selector: 'app-cliente-aprovado',
   templateUrl: './cliente-aprovado.component.html',
-  styleUrls: ['./cliente-aprovado.component.css'],
+  styleUrls: ['./cliente-aprovado.component.css']
 })
-export class ClienteAprovadoComponent implements OnInit {
-  cliente!: Cliente;
+export class ClienteAprovadoComponent extends BasicInfoService implements OnInit {
+
   imovel!: Imovel;
   parcelaInicial!: number;
-  valorAprovado!: number;
+  valorTotalAprovado!: number;
 
   constructor(
-    private clientStorage: ClientStorageService,
-    private imovelStorage: ImovelStorageService
-  ) {}
+    injector: Injector,
+    location: Location,
+    router: Router,
+    public imovelService: ImovelService
+    ) {
+    super(injector, location, router)
+   }
 
   ngOnInit(): void {
-
-    this.cliente = this.clientStorage.getClient();
-    this.imovel = this.imovelStorage.getImovel();
-    console.log(this.imovel);
+    this.geraTitulo(this.imprimeTitulo());
+    this.imovelService.getImovel(this.imovel);
     this.parcelaInicial = this.imovel.parcelaInicial!;
-    this.valorAprovado = this.imovel.valorAprovado!;
+    this.valorTotalAprovado = this.imovel.valorAprovado!;
   }
+
+  imprimeTitulo():string {
+    return 'cliente-aprovado'
+  }
+
 }

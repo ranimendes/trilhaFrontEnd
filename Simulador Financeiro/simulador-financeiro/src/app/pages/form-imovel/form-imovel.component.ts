@@ -73,16 +73,16 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
 
   navigateApprovedDenied() {
     const imovel: Imovel = new Imovel(
-      this.imovelForm.get('tipo')?.value,
-      this.imovelForm.get('renda')?.value,
-      this.imovelForm.get('valor')?.value,
-      this.imovelForm.get('entrada')?.value,
-      this.imovelForm.get('parcelas')?.value
+      this.imovelForm?.get('tipo')?.value,
+      this.imovelForm?.get('renda')?.value,
+      this.imovelForm?.get('valor')?.value,
+      this.imovelForm?.get('entrada')?.value,
+      this.imovelForm?.get('parcelas')?.value
     );
 
     const aprovadoValor = imovel.valor! - imovel.entrada!;
 
-    const parcela = this.imovelForm.get('parcelas')?.value;
+    const parcela = this.imovelForm?.get('parcelas')?.value;
     const taxAccount = 0.1;
     const rendaTeto = 0.3;
 
@@ -102,9 +102,8 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     if (valorMaximoParcelas > valorMinimoRenda && aprovadoValor < 0) {
       this.router.navigate(['cliente-reprovado']);
     } else {
-      this.posValida();
+      this.onSubmit(imovel);
     }
-    this.onSubmit(imovel);
   }
 
   validacaoCampos(simulacao: Simulacao) {
@@ -116,7 +115,7 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
   }
 
   onSubmit(imovel: Imovel) {
-    const client: Cliente = this.clientStorage.getClient();
+    let client: Cliente = this.clientStorage.getClient();
     console.log(client);
     const simulacao: Simulacao = {
       client: {
@@ -153,14 +152,6 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
       });
     } else {
       alert('O seu formulário possui campos inválidos. Tente novamente.');
-    }
-  }
-
-  posValida(){
-    if (this.imovelForm.value == null){
-      return alert('SEU FORMÚLARIO É INVALIDO')
-    } else{
-      this.router.navigate(['cliente-aprovado']);
     }
   }
 

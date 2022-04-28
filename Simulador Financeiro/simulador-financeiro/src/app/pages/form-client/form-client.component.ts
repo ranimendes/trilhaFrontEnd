@@ -19,18 +19,20 @@ import { Location } from '@angular/common';
   styleUrls: ['./form-client.component.css'],
 })
 export class FormClientComponent extends BasicInfoService implements OnInit {
+  public modelo = Cliente;
   private onlyNumber = '[0-9]*';
   private caracteres = '[A-zÀ-ú ]+';
   enviaForm = this.botaoSalvar();
 
-  formClient!: FormGroup;
+  formClient: any;
+  Cliente!: Cliente;
 
   constructor(
     injector: Injector,
     location: Location,
     router: Router,
     protected fb: FormBuilder,
-    protected clientStorage: ClientStorageService
+    private clientStorage: ClientStorageService
   ) {
     super(injector, location, router);
   }
@@ -40,7 +42,6 @@ export class FormClientComponent extends BasicInfoService implements OnInit {
     this.criarFormulario();
   }
 
-  client() {}
 
   imprimeTitulo(): string {
     return 'Formulário do Cliente';
@@ -82,22 +83,35 @@ export class FormClientComponent extends BasicInfoService implements OnInit {
     });
   }
 
-  navigateImovel() {
-    const client: Cliente = new Cliente(
-      this.formClient.get('id')?.value,
-      this.formClient.get('nome')?.value,
-      this.formClient.get('trabalho')?.value,
-      this.formClient.get('cpf')?.value,
-      this.formClient.get('email')?.value,
-      this.formClient.get('birth')?.value,
-      this.formClient.get('cep')?.value,
-      this.formClient.get('celular')?.value
-    );
-    this.clientStorage.setClient(client);
+  client() {}
+
+ public navigateImovel() {
+
+     let id = this.formClient.get('id').value;
+     let nome = this.formClient.get('nome').value;
+     let trabalho = this.formClient.get('trabalho')?.value;
+     let cpf = this.formClient.get('cpf').value;
+     let email = this.formClient.get('email').value;
+     let birth = this.formClient.get('birth').value;
+     let cep = this.formClient.get('cep').value;
+     let celular = this.formClient.get('celular').value;
+
+     this.Cliente = new Cliente(
+      id,
+      nome,
+      trabalho,
+      cpf,
+      email,
+      birth,
+      cep,
+      celular,
+     );
+
+    this.clientStorage.setClient(this.Cliente);
     this.botaoSalvar();
   }
 
-  protected botaoSalvar() {
+  public botaoSalvar() {
     const url = this.location.path();
     this.enviarForm = true;
 
@@ -105,7 +119,7 @@ export class FormClientComponent extends BasicInfoService implements OnInit {
     return this.rota;
   }
 
-  protected criaRotaImovel() {
+  public criaRotaImovel() {
     return '/form-imovel';
   }
 

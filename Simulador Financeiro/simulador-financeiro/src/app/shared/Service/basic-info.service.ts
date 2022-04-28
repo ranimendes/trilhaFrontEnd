@@ -19,7 +19,7 @@ export class BasicInfoService {
     protected location: Location,
     protected router: Router
   ) { }
-  protected geraTitulo(imprimePagina: string) {
+  public geraTitulo(imprimePagina: string) {
     const url = this.location.path();
 
     if (url == '') {
