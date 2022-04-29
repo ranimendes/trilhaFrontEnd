@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { BasicInfoService } from './basic-info.service'
 
-describe('RecursosBasicosService', () => {
+describe('BasicInfo', () => {
   //Segundo - Declara variaveis que foram ciradas nos providers criando spy let injectorSpy: jasmine.SpyObj<Injector>;
   let service: BasicInfoService;
   let injectorSpy: jasmine.SpyObj<Injector>;
@@ -27,22 +27,59 @@ describe('RecursosBasicosService', () => {
     service = TestBed.inject(BasicInfoService);
   });
 
-   it("Should geraTitulo() is running", () => {
-    const implementacaoPagina:string = "";
-    service.tituloPagina = "tituloHome";
-  //  spyOn<any>(locationSpy, "path").and.returnValue(true);
-    service.geraTitulo(implementacaoPagina);
+   it("Should geraTitulo() Home is running", () => {
+    //Preparação
+    locationSpy.path.and.returnValue("");
 
-    expect(service.geraTitulo).toBeTruthy();
+    //Teste
+    service.geraTitulo("teste");
+
+    //Verificação
+    expect(service.tituloPagina).toEqual("teste");
   });
 
-  it("Should geraTitulo() is running", () => {
-    const implementacaoPagina:string = "";
-    service.tituloPagina = "cliente-aprovado";
-  //  spyOn<any>(locationSpy, "path").and.returnValue(true);
-    service.geraTitulo(implementacaoPagina);
+  it("Should geraTitulo() form-client is running", () => {
+    //Preparação
+    locationSpy.path.and.returnValue("/form-client");
 
-    expect(null);
+    //Teste
+    service.geraTitulo("teste");
+
+    //Verificação
+    expect(service.tituloPagina).toEqual("teste");
+  });
+
+  it("Should geraTitulo() form-imovel is running", () => {
+    //Preparação
+    locationSpy.path.and.returnValue("/form-imovel");
+
+    //Teste
+    service.geraTitulo("teste");
+
+    //Verificação
+    expect(service.tituloPagina).toEqual("teste");
+  });
+
+  it("Should geraTitulo() cliente-aprovado is running", () => {
+    //Preparação
+    locationSpy.path.and.returnValue("/cliente-aprovado");
+
+    //Teste
+    service.geraTitulo("teste");
+
+    //Verificação
+    expect(service.tituloPagina).toEqual("teste");
+  });
+
+  it("Should geraTitulo() cliente-reprovado is running", () => {
+    //Preparação
+    locationSpy.path.and.returnValue("/cliente-reprovado");
+
+    //Teste
+    service.geraTitulo("teste");
+
+    //Verificação
+    expect(service.tituloPagina).toEqual("teste");
   });
 
 });
