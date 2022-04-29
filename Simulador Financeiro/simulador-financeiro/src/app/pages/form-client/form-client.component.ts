@@ -115,7 +115,9 @@ export class FormClientComponent extends BasicInfoService implements OnInit {
     const url = this.location.path();
     this.enviarForm = true;
 
-    if (url == '/form-client') this.rota = this.criaRotaImovel();
+    if (url == '/form-client') {
+      this.rota = this.criaRotaImovel();
+    }
     return this.rota;
   }
 
