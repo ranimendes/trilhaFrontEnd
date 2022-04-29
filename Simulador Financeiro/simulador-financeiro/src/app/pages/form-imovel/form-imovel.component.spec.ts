@@ -62,15 +62,25 @@ describe('FormImovelComponent', () => {
   });
 
   it('makes expected calls', () => {
+
+    //Aplicar no geraTitulo(),criaFormulario();
     spyOn(component, 'imprimeTitulo').and.callThrough();
+    spyOn(component, 'geraTitulo').and.callThrough();
+    spyOn(component, 'criarFormulario').and.callThrough();
     component.ngOnInit();
     expect(component.imprimeTitulo).toHaveBeenCalled();
+    expect(component.geraTitulo).toHaveBeenCalled();
+    expect(component.criarFormulario).toHaveBeenCalled();
   });
 
-  it(`#${FormImovelComponent.prototype.navigateApprovedDenied.name}
+  xit(`#${FormImovelComponent.prototype.navigateApprovedDenied.name}
       Should validate simulation`, () => {
-    spyOn(component, 'navigateApprovedDenied').and.callThrough();
+        //Preparação
+
+        //Teste
     component.navigateApprovedDenied();
-    expect(component.navigateApprovedDenied).toHaveBeenCalled();
+
+       //Verificação
+
   });
 });
