@@ -26,7 +26,6 @@ export class ClienteAprovadoComponent extends BasicInfoService implements OnInit
    }
 
   ngOnInit(): void {
-    this.geraTitulo(this.imprimeTitulo());
     this.imovelService.getImovel(this.imovel);
     this.parcelaInicial = this.imovel.parcelaInicial!;
     this.valorTotalAprovado = this.imovel.valorAprovado!;
