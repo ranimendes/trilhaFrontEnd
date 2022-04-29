@@ -31,7 +31,9 @@ describe(FormClientComponent.name, () => {
     celular: '',
   };
 
-  let mockClientStorage = jasmine.createSpyObj('clientStorage', ['setClient']);
+  let mockClientStorage = jasmine.createSpyObj('ClientStorageService', [
+    'setClient',
+  ]);
 
   const client = {
     id: 1,
@@ -73,6 +75,36 @@ describe(FormClientComponent.name, () => {
     expect(component.modelo).toEqual(Cliente);
   });
 
+  xit(`client() has default value`, () => {
+    expect(component.client()).toEqual(component.client());
+  });
+
+  it(`ThisBotaoSalvar() has default value`, () => {
+    //Preparação
+    locationSpy.path.and.returnValue('/form-client');
+
+    //Teste
+    let retorno = component.botaoSalvar();
+
+    //Verificação
+    expect(component.enviarForm).toBeTrue();
+    expect(component.rota).toEqual('/form-imovel');
+    expect(retorno).toEqual('/form-imovel');
+  });
+
+  it(`ThisBotaoSalvar() has default value`, () => {
+    //Preparação
+    locationSpy.path.and.returnValue('teste');
+
+    //Teste
+    let retorno = component.botaoSalvar();
+
+    //Verificação
+    expect(component.enviarForm).toBeTrue();
+    expect(component.rota).toEqual('');
+    expect(retorno).toEqual('');
+  });
+
   it('makes expected calls', () => {
     spyOn(component, 'imprimeTitulo').and.callThrough();
     component.ngOnInit();
@@ -98,21 +130,6 @@ describe(FormClientComponent.name, () => {
     component.rota = '';
     fixture.detectChanges();
     expect(component.criaRotaImovel).toBeTruthy();
-  });
-
-  it('Component Navigateimovel()', () => {
-    component.formClient.setValue({
-      id: 1,
-      nome: 'Fulano',
-      trabalho: 'Carteiro',
-      cpf: 885558585,
-      email: 'fulano@fulano.com',
-      birth: 748596,
-      cep: 859667556,
-      celular: 85285626585,
-    });
-    component.navigateImovel();
-    expect(mockClientStorage.setClient).toHaveBeenCalled();
   });
 
   it(`#${FormClientComponent.prototype.criaRotaImovel.name}
