@@ -55,7 +55,7 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
 
   imovel() {}
 
-  private criarFormulario() {
+  public criarFormulario() {
     this.imovelForm = this.fb.group({
       tipo: new FormControl('', [Validators.required]),
       renda: new FormControl('', [Validators.required]),
@@ -71,7 +71,7 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     });
   }
 
-  navigateApprovedDenied() {
+ public navigateApprovedDenied() {
     const imovel: Imovel = new Imovel(
       this.imovelForm?.get('tipo')?.value,
       this.imovelForm?.get('renda')?.value,
@@ -99,10 +99,11 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     const valorMaximoParcelas = valuePlusTax / imovel.parcelas!;
     const valorMinimoRenda = imovel.renda! * rendaTeto;
 
-    if (valorMaximoParcelas > valorMinimoRenda && aprovadoValor < 0) {
+    if (valorMaximoParcelas > valorMinimoRenda || aprovadoValor < 0) {
       this.router.navigate(['cliente-reprovado']);
     } else {
-      this.onSubmit(imovel);
+      this.router.navigate(['cliente-aprovado']);
+      // this.onSubmit(imovel);
     }
   }
 
@@ -112,47 +113,6 @@ export class FormImovelComponent extends BasicInfoService implements OnInit {
     if (simulacao.imovel.entrada! <= 0) return false;
     if (simulacao.imovel.parcelas! > 360) return false;
     return true;
-  }
-
-  onSubmit(imovel: Imovel) {
-    let client: Cliente = this.clientStorage.getClient();
-    console.log(client);
-    const simulacao: Simulacao = {
-      client: {
-        nome: client.nome,
-        trabalho: client.trabalho,
-        cpf: client.cpf,
-        email: client.email,
-        birth: client.birth,
-        cep: client.cep,
-        celular: client.celular,
-      },
-      imovel: {
-        tipo: imovel.tipo,
-        renda: imovel.renda,
-        valor: imovel.valor,
-        entrada: imovel.entrada,
-        parcelas: imovel.parcelas,
-        valorAprovado: imovel.valorAprovado,
-        parcelaInicial: imovel.parcelaInicial,
-      },
-    };
-
-    const isFormValid: boolean = this.validacaoCampos(simulacao);
-    if (isFormValid == true) {
-      this.service.enviar(simulacao).subscribe({
-        next: (response: Simulacao) => {
-          console.log(simulacao);
-        },
-        error: (error: any) => {
-          alert(
-            'Não conseguimos o envio das informações do seu formulário, pois estamos sem contato com o banco de dados. Tente novamente!'
-          );
-        },
-      });
-    } else {
-      alert('O seu formulário possui campos inválidos. Tente novamente.');
-    }
   }
 
   voltar() {
