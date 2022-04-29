@@ -40,20 +40,12 @@ describe('ClienteAprovadoComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('makes expected calls', () => {
-    spyOn(component, 'imprimeTitulo').and.callThrough();
-    component.ngOnInit();
-    expect(component.imprimeTitulo).toHaveBeenCalled();
-  });
-
-  it('makes expected calls', () => {
-    const imovelStorageServiceStub: ImovelService = fixture.debugElement.injector.get(
-      ImovelService
-    );
-    spyOn(component, 'imprimeTitulo').and.callThrough();
-    spyOn(imovelStorageServiceStub, 'getImovel').and.callThrough();
-    component.ngOnInit();
-    expect(component.imprimeTitulo).toHaveBeenCalled();
-    expect(imovelStorageServiceStub.getImovel).toHaveBeenCalled();
-  });
+  //  xit('makes expected calls', () => {
+  //   const imovelStorageServiceStub: ImovelService = fixture.debugElement.injector.get(
+  //     ImovelService
+  //   );
+  //   spyOn(imovelStorageServiceStub, 'getImovel').and.callThrough();
+  //   component.ngOnInit();
+  //   expect(imovelStorageServiceStub.getImovel).toHaveBeenCalled();
+  // });
 });
